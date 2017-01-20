@@ -63,7 +63,7 @@ const Todo = {
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(count, index) in todo.counts">
+                <tr v-for="(count, index) in orderedCounts">
                   <td>{{todo.counts.length - index}}</td>
                   <td>{{getTime(count.time)}}</td>
                   <td>{{getDuration(count.duration)}}</td>
@@ -101,6 +101,9 @@ const Todo = {
       const total = this.todo.counts.reduce(reducer, initial);
       const hours = total.asHours() === 0 ? '00' : Math.floor(total.asHours());
       return hours + ':' + moment.utc(total.asMilliseconds()).format('mm:ss');
+    },
+    orderedCounts() {
+      return this.todo.counts.reverse();
     }
   }
 };
