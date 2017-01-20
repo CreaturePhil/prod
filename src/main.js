@@ -15,10 +15,10 @@ function loadTodos() {
 
 new Vue({
   el: '#app',
-	data: {
-		text: '',
-		todos: loadTodos()
-	},
+  data: {
+    text: '',
+    todos: loadTodos()
+  },
   components: {
     Todo
   },
@@ -46,33 +46,33 @@ new Vue({
       </ul>
     </div>
   `,
-	methods: {
-		addTodo() {
-			const text = this.text.trim();
-			if (!text) return;
-			this.todos.push({text, counts: []});
-			this.text = '';
-		},
+  methods: {
+    addTodo() {
+      const text = this.text.trim();
+      if (!text) return;
+      this.todos.push({text, counts: []});
+      this.text = '';
+    },
 
-		removeTodo(index) {
-			this.todos.splice(index, 1);
-		},
+    removeTodo(index) {
+      this.todos.splice(index, 1);
+    },
 
-		incrementCount(index, count) {
-			this.todos[index].counts.push(count);
-		},
+    incrementCount(index, count) {
+      this.todos[index].counts.push(count);
+    },
 
-		decrementCount(index) {
-			this.todos[index].counts.pop();
-		},
-	},
-	watch: {
-		todos: {
+    decrementCount(index) {
+      this.todos[index].counts.pop();
+    },
+  },
+  watch: {
+    todos: {
       handler(todos) {
-				localStorage.setItem('prod-app', JSON.stringify(todos));
+        localStorage.setItem('prod-app', JSON.stringify(todos));
         console.log(localStorage.getItem('prod-app'));
       },
       deep: true
-		}
-	}
+    }
+  }
 });

@@ -76,14 +76,14 @@ const Todo = {
     </div>
   `,
   methods: {
-		incrementCount(index) {
-			const value = this.duration.trim();
-			if (!value) return;
-			this.duration = '';
-			const duration = moment.duration(value);
-			const time = moment(Date.now()).subtract(duration);
+    incrementCount(index) {
+      const value = this.duration.trim();
+      if (!value) return;
+      this.duration = '';
+      const duration = moment.duration(value);
+      const time = moment(Date.now()).subtract(duration);
       this.onIncrementCount(index, {duration, time});
-		},
+    },
     toggleTimes() {
       this.times = !this.times;
     },
