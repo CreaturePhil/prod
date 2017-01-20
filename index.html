@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Prod</title>
+    <meta name="description" content="Productivity application">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.1/css/bulma.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Overpass" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 2em;
+      }
+
+      .title {
+        line-height: 1.75;
+        font-family: 'Overpass', sans-serif;
+      }
+
+      .push-right {
+        margin-right: 1em;
+      }
+
+      .ver-align-bot {
+        vertical-align: bottom;
+      }
+
+      .slide-fade-enter-active {
+        transition: all .4s ease;
+      }
+      .slide-fade-leave-active {
+        transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+      }
+      .slide-fade-enter, .slide-fade-leave-to
+      /* .slide-fade-leave-active for <2.1.8 */ {
+        transform: translateY(-20%);
+        opacity: 0;
+      }
+
+      .list-enter-active {
+        transition: all 1s;
+      }
+      .list-enter {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="app"></div>
+
+    <script src="/dist/build.js"></script>
+  </body>
+</html>
