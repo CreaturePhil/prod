@@ -103,7 +103,8 @@ const Todo = {
       return hours + ':' + moment.utc(total.asMilliseconds()).format('mm:ss');
     },
     orderedCounts() {
-      return this.todo.counts.reverse();
+      return this.todo.counts.sort((left, right) =>
+        moment.utc(right.time).diff(moment.utc(left.time)));
     }
   }
 };
