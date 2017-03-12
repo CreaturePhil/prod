@@ -1,5 +1,5 @@
-import Vue from 'vue';
 import moment from 'moment';
+import {totalDuration} from './total';
 
 const Todo = {
   props: [
@@ -96,11 +96,7 @@ const Todo = {
   },
   computed: {
     totalDuration() {
-      const initial = moment.duration(0);
-      const reducer = (acc, cur) => acc.add(cur.duration);
-      const total = this.todo.counts.reduce(reducer, initial);
-      const hours = total.asHours() === 0 ? '00' : Math.floor(total.asHours());
-      return hours + ':' + moment.utc(total.asMilliseconds()).format('mm:ss');
+      return totalDuration(this.todo.counts);
     },
     orderedCounts() {
       return this.todo.counts.slice().sort((left, right) =>
